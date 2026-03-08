@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Item — KNUST Lost & Found</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a> | <a href="report.html">Report</a> |
+        <a href="my-posts.html">My Posts</a> |
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Report Item</h1>
+
+      <form id="report-form">
+        <label>
+          Type:
+          <select id="item-type" required>
+            <option value="">Select Type</option>
+            <option value="lost">Lost</option>
+            <option value="found">Found</option>
+          </select>
+        </label>
+
+        <br /><br />
+        <label>
+          Category:
+          <select id="item-category" required>
+            <option value="">Select Category</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Personal Items">Personal Items</option>
+            <option value="Keys">Keys</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Documents">Documents</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+
+        <label>
+          Title:
+          <input type="text" id="item-title" required />
+        </label>
+
+        <br /><br />
+
+        <label>
+          Description:
+          <textarea id="item-description" required></textarea>
+        </label>
+
+        <br /><br />
+
+        <label>
+          Location:
+          <input
+            type="text"
+            id="item-location"
+            placeholder="e.g. Near the Great Hall, Bush Canteen, College of Science..."
+            required
+          />
+        </label>
+
+        <label>Item Image:</label>
+        <input type="file" id="item-image" accept="image/*" />
+        <img
+          id="image-preview"
+          style="max-width: 200px; display: none; margin-top: 10px"
+        />
+
+        <br /><br />
+
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+
+    <script src="./js/report.js"></script>
+  </body>
+</html>
