@@ -5,13 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Posts — KNUST Lost & Found</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
     <header>
-      <nav>
-        <a href="index.html">Home</a> | <a href="report.html">Report</a> |
-        <a href="my-posts.html">My Posts</a> |
-        <a href="about.html">About</a>
+      <nav class="navbar">
+        <div class="nav-brand">
+          <a href="index.html">KNUST Lost & Found</a>
+        </div>
+
+        <div class="nav-links">
+          <a href="index.html">
+            <i data-lucide="home"></i>
+            Home
+          </a>
+
+          <a href="report.html">
+            <i data-lucide="plus-circle"></i>
+            Report
+          </a>
+
+          <a href="my-posts.html">
+            <i data-lucide="clipboard-list"></i>
+            My Posts
+          </a>
+
+          <a href="about.html">
+            <i data-lucide="info"></i>
+            About
+          </a>
+        </div>
       </nav>
     </header>
 
@@ -24,5 +47,8 @@
     </main>
 
     <script src="./js/my-posts.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>

@@ -61,8 +61,15 @@ function renderItems() {
     <div class="item-meta">
     <span class="item-type">${item.type}</span>
     <span class="item-category">${item.category}</span>
-    <span class="item-time">${timeAgo(item.createdAt)}</span>
-<span class="item-views">${item.views} ${item.views === 1 ? "view" : "views"}</span>
+    <span class="item-time">
+  <i data-lucide="clock"></i>
+  ${timeAgo(item.createdAt)}
+</span>
+
+<span class="item-views">
+  <i data-lucide="eye"></i>
+  ${item.views} ${item.views === 1 ? "view" : "views"}
+</span>
      </div>
 
     <div class="status-badge status-${item.status.toLowerCase()}">
@@ -75,6 +82,8 @@ function renderItems() {
     });
 
     container.appendChild(card);
+
+    lucide.createIcons();
   });
 }
 
@@ -121,27 +130,3 @@ statusFilter.addEventListener("change", applyFilters);
 applyFilters();
 
 const hero = document.querySelector(".hero");
-
-if (hero) {
-  let ticking = false;
-
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        hero.classList.toggle("collapsed", window.scrollY > 120);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-}
-let ticking = false;
-window.addEventListener("scroll", () => {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      hero.classList.toggle("collapsed", window.scrollY > 120);
-      ticking = false;
-    });
-    ticking = true;
-  }
-});
