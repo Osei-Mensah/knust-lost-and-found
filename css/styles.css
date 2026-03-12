@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  padding: 24px;
+  padding: 24px 40px;
   margin: 0;
   background: #f4f6f5;
 
@@ -39,21 +39,55 @@ input,
 select {
   padding: 10px 14px;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #e0e0e0;
   outline: none;
   font-size: 14px;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+input:hover,
+select:hover {
+  border-color: #0f6a3a;
+  box-shadow: 0 0 0 2px rgba(15, 106, 58, 0.15);
 }
 
 .items-section {
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 /* ---------- NAVBAR ---------- */
 
 .navbar {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+
+  background: white;
+
+  padding: 14px 20px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-brand a {
+  text-decoration: none;
   font-weight: bold;
+  font-size: 18px;
+  color: #0f6a3a;
 }
 
 .navbar a {
@@ -68,21 +102,19 @@ select {
 /* ---------- HERO ---------- */
 
 .hero {
-  background: rgba(15, 106, 58, 0.95);
+  background:
+    linear-gradient(rgba(15, 106, 58, 0.75), rgba(15, 106, 58, 0.9)),
+    url("../assets/web_background_image.jpeg");
 
   color: white;
 
-  padding: 80px 20px;
+  padding: 50px 20px;
 
   text-align: center;
 
   border-radius: 12px;
 
   margin-bottom: 30px;
-
-  position: sticky;
-  top: 0;
-  z-index: 4;
 
   will-change: padding, background;
 
@@ -91,37 +123,26 @@ select {
     background 0.25s ease;
 }
 
-.hero.collapsed {
-  padding: 20px 20px;
-
-  background: rgba(15, 106, 58, 0.25);
-
-  backdrop-filter: blur(4px);
-}
-
 .hero h1 {
+  color: white;
   font-size: 48px;
   margin-bottom: 30px;
 
   transition: font-size 0.25s ease;
 }
 
-.hero.collapsed h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
 .search-filter-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
 
   transition: transform 0.35s ease;
 }
 
 .search-filter-container input {
-  min-width: 260px;
+  min-width: 320px;
+  height: 42px;
 }
 
 .search-filter-container select {
@@ -135,9 +156,10 @@ select {
   align-items: center;
   gap: 16px;
 
-  border: 1px solid #ddd;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   border-radius: 10px;
-  padding: 16px;
+  padding: 18px;
 
   background: white;
 
@@ -275,4 +297,10 @@ select {
 
 .card-actions button:hover {
   opacity: 0.85;
+}
+
+.item-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
