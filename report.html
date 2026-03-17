@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
-  <body>
+  <body class="report-page">
     <header>
       <nav class="navbar">
         <div class="nav-brand">
@@ -39,22 +39,84 @@
     </header>
 
     <main>
-      <h1>Report Item</h1>
+      <section class="hero">
+        <h1>Post an Item</h1>
+        <p>Help lost items find their way home</p>
+      </section>
 
-      <form id="report-form">
-        <label>
-          Type:
-          <select id="item-type" required>
+      <section class="report-container">
+        <form id="report-form">
+          <div class="item-type-selector">
+            <button type="button" class="type-btn" data-type="lost">
+              Lost Item
+            </button>
+
+            <button type="button" class="type-btn" data-type="found">
+              Found Item
+            </button>
+          </div>
+
+          <select id="item-type" required style="display: none">
             <option value="">Select Type</option>
             <option value="lost">Lost</option>
             <option value="found">Found</option>
           </select>
-        </label>
 
-        <br /><br />
-        <label>
-          Category:
-          <select id="item-category" required>
+          <br /><br />
+
+          <div class="category-section">
+            <p class="section-label">What category best describes this item?</p>
+
+            <div class="category-grid">
+              <button
+                type="button"
+                class="category-btn"
+                data-category="Electronics"
+              >
+                <i data-lucide="laptop"></i>
+                Electronics
+              </button>
+
+              <button
+                type="button"
+                class="category-btn"
+                data-category="Personal Items"
+              >
+                <i data-lucide="user"></i>
+                Personal Items
+              </button>
+
+              <button type="button" class="category-btn" data-category="Keys">
+                <i data-lucide="key"></i>
+                Keys
+              </button>
+
+              <button
+                type="button"
+                class="category-btn"
+                data-category="Clothing"
+              >
+                <i data-lucide="shirt"></i>
+                Clothing
+              </button>
+
+              <button
+                type="button"
+                class="category-btn"
+                data-category="Documents"
+              >
+                <i data-lucide="file-text"></i>
+                Documents
+              </button>
+
+              <button type="button" class="category-btn" data-category="Other">
+                <i data-lucide="package"></i>
+                Other
+              </button>
+            </div>
+          </div>
+
+          <select id="item-category" required style="display: none">
             <option value="">Select Category</option>
             <option value="Electronics">Electronics</option>
             <option value="Personal Items">Personal Items</option>
@@ -63,43 +125,95 @@
             <option value="Documents">Documents</option>
             <option value="Other">Other</option>
           </select>
-        </label>
 
-        <label>
-          Title:
-          <input type="text" id="item-title" required />
-        </label>
+          <label>
+            Title:
+            <input type="text" id="item-title" required />
+          </label>
 
-        <br /><br />
+          <br /><br />
 
-        <label>
-          Description:
-          <textarea id="item-description" required></textarea>
-        </label>
+          <label>
+            Description:
+            <textarea id="item-description" required></textarea>
+          </label>
 
-        <br /><br />
+          <br /><br />
 
-        <label>
-          Location:
-          <input
-            type="text"
-            id="item-location"
-            placeholder="e.g. Near the Great Hall, Bush Canteen, College of Science..."
-            required
-          />
-        </label>
+          <label>
+            Location:
+            <input
+              type="text"
+              id="item-location"
+              placeholder="e.g. Near the Great Hall, Bush Canteen, College of Science..."
+              required
+            />
+          </label>
 
-        <label>Item Image:</label>
-        <input type="file" id="item-image" accept="image/*" />
-        <img
-          id="image-preview"
-          style="max-width: 200px; display: none; margin-top: 10px"
-        />
+          <div class="upload-section">
+            <p class="section-label">Upload Photos</p>
 
-        <br /><br />
+            <label for="item-image" class="upload-box" id="upload-box">
+              <i data-lucide="camera"></i>
 
-        <button type="submit">Submit</button>
-      </form>
+              <p class="upload-main">Click to upload photos</p>
+
+              <p class="upload-sub">or drag your images here</p>
+            </label>
+
+            <input
+              type="file"
+              id="item-image"
+              accept="image/*"
+              style="display: none"
+            />
+
+            <img id="image-preview" />
+          </div>
+
+          <br /><br />
+
+          <div class="contact-section">
+            <p class="section-label">Contact Information</p>
+            <p class="section-sub">
+              How should people contact you about this item?
+            </p>
+
+            <div class="contact-grid">
+              <label>
+                Your Name
+                <input
+                  type="text"
+                  id="contact-name"
+                  placeholder="Enter your name"
+                />
+              </label>
+
+              <label>
+                Phone Number
+                <input
+                  type="tel"
+                  id="contact-phone"
+                  placeholder="+233 XXX XXX XXX"
+                />
+              </label>
+            </div>
+          </div>
+          <br /><br />
+
+          <div class="privacy-box">
+            <p class="privacy-title">Privacy & Safety</p>
+
+            <p class="privacy-text">
+              Your contact information will only be shared with verified users
+              who respond to your post. We recommend meeting in public places
+              when exchanging lost items.
+            </p>
+          </div>
+
+          <button type="submit">Post Item</button>
+        </form>
+      </section>
     </main>
 
     <script src="./js/report.js"></script>

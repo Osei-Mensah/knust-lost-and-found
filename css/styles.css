@@ -36,7 +36,8 @@ section {
 }
 
 input,
-select {
+select,
+textarea {
   padding: 10px 14px;
   border-radius: 8px;
   border: 1px solid #e0e0e0;
@@ -47,9 +48,16 @@ select {
 }
 
 input:hover,
-select:hover {
+select:hover,
+textarea:hover {
   border-color: #0f6a3a;
   box-shadow: 0 0 0 2px rgba(15, 106, 58, 0.15);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background-color: rgb(221, 254, 255);
 }
 
 .items-section {
@@ -194,6 +202,7 @@ select:hover {
 .item-title {
   margin: 0;
   font-size: 18px;
+  width: 100%;
 }
 
 .item-description {
@@ -248,6 +257,7 @@ select:hover {
   font-size: 12px;
   font-weight: bold;
   margin-top: 6px;
+  margin-bottom: 10px;
 
   animation: badgePop 0.3s ease;
 }
@@ -303,4 +313,454 @@ select:hover {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+/* ---------- DETAILS PAGE ---------- */
+
+.details-page {
+  position: relative;
+}
+
+.details-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: url("../assets/college_kids.jpg") center/cover no-repeat;
+
+  filter: blur(6px);
+  z-index: -2;
+}
+
+.details-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: rgba(15, 106, 58, 0.6);
+  z-index: -1;
+}
+.details-container {
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.details-card {
+  background: rgba(255, 255, 255, 0.95);
+
+  border-radius: 12px;
+  padding: 30px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+  backdrop-filter: blur(4px);
+}
+
+.details-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .details-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.details-image img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+.details-info h2 {
+  margin: 0 0 6px 0;
+  font-size: 24px;
+}
+
+.details-location {
+  margin: 10px 0;
+}
+.details-description-box {
+  margin-top: 12px;
+
+  padding: 14px;
+
+  background: #f9fafb;
+
+  border-radius: 10px;
+
+  border: 1px solid #eee;
+
+  color: #444;
+}
+.details-meta {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.details-description {
+  margin-top: 12px;
+  color: #444;
+}
+
+#claim-message {
+  width: 100%;
+  min-height: 80px;
+  margin-top: 8px;
+}
+
+#claim-btn {
+  margin-top: 10px;
+
+  padding: 10px 14px;
+
+  background: #0f6a3a;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+/* ---------- REPORT PAGE ---------- */
+
+.report-container {
+  max-width: 850px;
+  margin: 0 auto 40px auto;
+}
+
+#report-form {
+  background: white;
+  padding: 36px 40px;
+  border-radius: 12px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#report-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 6px;
+}
+
+#report-form input {
+  width: 100%;
+}
+#report-form textarea {
+  min-height: 100px;
+  resize: vertical;
+
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.category-section,
+.upload-section,
+.contact-section,
+.privacy-box {
+  margin-top: 18px;
+}
+
+.contact-info {
+  margin-top: 10px;
+
+  padding: 12px;
+
+  background: #f9fafb;
+
+  border: 1px solid #eee;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+}
+
+#report-form button[type="submit"] {
+  width: 160px;
+  text-align: center;
+  margin-top: 10px;
+  align-self: flex-end;
+  padding: 12px 16px;
+
+  background: #0f6a3a;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  align-self: flex-end;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+#report-form button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+#item-image {
+  padding: 8px;
+}
+
+#image-preview {
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+/* ---------- ITEM TYPE TOGGLE ---------- */
+
+.item-type-selector {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.type-btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #f8f8f8;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.type-btn:hover {
+  border-color: #0f6a3a;
+}
+
+.type-btn.active {
+  background: #0f6a3a;
+  box-shadow: 0 3px 8px rgba(15, 106, 58, 0.25);
+
+  color: white;
+  border-color: #0f6a3a;
+}
+
+/* ---------- FORM GRID ---------- */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 700px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- CATEGORY SELECTOR ---------- */
+
+.category-section {
+  margin-top: 10px;
+}
+
+.section-label {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.category-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  border: 1px solid #e0e0e0;
+
+  background: white;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover {
+  border-color: #0f6a3a;
+  transform: translateY(-1px);
+}
+
+.category-btn.active {
+  background: #0f6a3a;
+  color: white;
+  border-color: #0f6a3a;
+}
+/* ---------- IMAGE UPLOAD ---------- */
+
+.upload-section {
+  margin-top: 10px;
+}
+
+.upload-box {
+  border: 2px dashed #d0d0d0;
+  border-radius: 12px;
+
+  padding: 40px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  background: #fafafa;
+
+  transition: all 0.2s ease;
+}
+
+.upload-box:hover {
+  border-color: #0f6a3a;
+  background: #f6fbf8;
+}
+
+.upload-box i {
+  width: 40px;
+  height: 40px;
+
+  color: #0f6a3a;
+
+  margin-bottom: 10px;
+}
+
+.upload-main {
+  font-weight: 600;
+}
+
+.upload-sub {
+  font-size: 13px;
+  color: #666;
+}
+
+#image-preview {
+  display: none;
+  margin-top: 16px;
+
+  max-width: 220px;
+
+  border-radius: 10px;
+
+  border: 1px solid #eee;
+}
+.preview-visible {
+  display: block;
+}
+#image-preview {
+  cursor: pointer;
+}
+
+/* ---------- CONTACT SECTION ---------- */
+
+.contact-section {
+  margin-top: 10px;
+}
+
+.section-sub {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contact-grid > * {
+  min-width: 0;
+}
+
+.contact-grid input {
+  width: 100%;
+}
+
+.contact-grid label {
+  width: 70%;
+}
+
+@media (max-width: 700px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-owner {
+  margin-top: 12px;
+}
+
+.contact-owner button {
+  padding: 10px 14px;
+
+  background: #0f6a3a;
+  color: white;
+  margin-top: 16px;
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+/* ---------- PRIVACY BOX ---------- */
+
+.privacy-box {
+  margin-top: 14px;
+
+  padding: 14px 16px;
+
+  border-radius: 10px;
+
+  background: #eef7ff;
+
+  border: 1px solid #cde3ff;
+}
+
+.privacy-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.privacy-text {
+  font-size: 13px;
+  color: #444;
 }

@@ -44,23 +44,79 @@ if (!item) {
   }
 
   const img = item.image ? `<img src="${item.image}" class="item-image">` : "";
+
+  let contactSection = "";
+
+  if (item.contactPhone || item.contactName) {
+    contactSection = `
+    <div class="contact-owner">
+      <button id="contact-btn">Contact Owner</button>
+     <p id="contact-info" class="contact-info" style="display:none;">
+  <strong>${item.contactName || "Owner"}</strong><br>
+  ${item.contactPhone || ""}
+</p>
+    </div>
+  `;
+  }
   detailsBox.innerHTML = `
-  ${img}
+<div class="details-content">
 
-  <h2>${item.title}</h2>
-  <p><b>Type:</b> ${item.type}</p>
-  <p><b>Location:</b> ${item.location}</p>
+  <div class="details-image">
+    ${img || "<p>No image available</p>"}
+  </div>
 
-  <div class="status-badge status-${item.status.toLowerCase()}">${item.status}</div>
+  <div class="details-info">
 
-  ${ownerNotice}
+    <h2>${item.title}</h2>
 
-  <p>${item.description}</p>
+    <div class="details-meta">
+      <span>${item.type}</span>
+      <span>${item.category}</span>
+      <span>${item.views || 0} views</span>
+    </div>
 
-  ${claimSection}
+<p class="details-location">
+  <b>Location:</b> ${item.location || "Not specified"}
+</p>
+    <div class="status-badge status-${item.status.toLowerCase()}">
+      ${item.status}
+    </div>
 
-  <p><a href="index.html">← Back to Home</a></p>
+    ${ownerNotice}
+
+<div class="details-description-box">
+  ${item.description}
+</div>
+
+${contactSection}
+
+
+
+
+    ${claimSection}
+
+    <p style="margin-top:16px;">
+      <a href="index.html">← Back to Home</a>
+    </p>
+
+  </div>
+
+</div>
+
+
 `;
+
+  const contactBtn = document.getElementById("contact-btn");
+
+  if (contactBtn) {
+    contactBtn.addEventListener("click", () => {
+      const info = document.getElementById("contact-info");
+
+      info.style.display = "block";
+      contactBtn.style.display = "none";
+    });
+  }
+
   const claimBtn = document.getElementById("claim-btn");
 
   if (claimBtn) {
