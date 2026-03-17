@@ -12,7 +12,14 @@ imageInput.addEventListener("change", () => {
   reader.onload = function (e) {
     preview.src = e.target.result;
     preview.style.display = "block";
+
+    document.getElementById("upload-box").style.display = "none";
+    preview.classList.add("preview-visible");
   };
+
+  preview.addEventListener("click", () => {
+    imageInput.click();
+  });
 
   reader.readAsDataURL(file);
 });
@@ -61,6 +68,8 @@ if (editId) {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  const contactName = document.getElementById("contact-name").value;
+  const contactPhone = document.getElementById("contact-phone").value;
   const type = document.getElementById("item-type").value;
   const category = document.getElementById("item-category").value;
 
@@ -95,8 +104,8 @@ form.addEventListener("submit", (event) => {
         description,
         location,
 
-        contactName: "",
-        contactPhone: "",
+        contactName,
+        contactPhone,
 
         image: imageData,
 
@@ -128,4 +137,30 @@ form.addEventListener("submit", (event) => {
   } else {
     saveItem();
   }
+});
+
+const typeButtons = document.querySelectorAll(".type-btn");
+const typeSelect = document.getElementById("item-type");
+
+typeButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    typeButtons.forEach((b) => b.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    typeSelect.value = btn.dataset.type;
+  });
+});
+
+const categoryButtons = document.querySelectorAll(".category-btn");
+const categorySelect = document.getElementById("item-category");
+
+categoryButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    categoryButtons.forEach((b) => b.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    categorySelect.value = btn.dataset.category;
+  });
 });
