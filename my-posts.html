@@ -1,50 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Posts — KNUST Lost & Found</title>
+
+    <!-- External CSS -->
     <link rel="stylesheet" href="./css/styles.css" />
+
+    <!-- Font & Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   </head>
-  <body>
-     <header>
-  <div class="logo">
-    <img src="images/knust-logo.png" alt="KNUST Logo" class="logo-img">
-    <span class="site-title">Knust Lost & Found</span>
-  </div>
-  <nav class="navbar">
-    <a href="index.html" class="nav-item">
-    <i class="fa-solid fa-house"></i> Home
-    </a>
 
-    <a href="report.html" class="nav-item">
-    <i class="fa-solid fa-triangle-exclamation"></i>Report
-  </a>
-
-    <a href="my-posts.html" class="nav-item active">
-   <i class="fa-solid fa-box"></i>My Posts
-  </a>
-
-    <a href="about.html" class="nav-item">
-   <i class="fa-solid fa-circle-info"></i>About
-  </a>
-
-    <a href="#" class="nav-item">
-   <i class="fa-solid fa-user"></i>Profile
-  </a>
-  </nav>
-</header>
-
-
-    <main>
-      <h1>My Posts</h1>
-
-      <div id="my-posts-container">
-        <p>Loading your posts...</p>
+  <body class="my-posts-page">
+   <header> 
+      <div class="logo">
+        <img src="images/knust-logo.png" alt="KNUST Logo" class="logo-img">
+        <span class="site-title">KNUST Lost &amp; Found</span>
       </div>
-    </main>
+      <nav class="navbar">
+        <a href="index.html" class="nav-item">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+        <a href="report.html" class="nav-item">
+          <i class="fa-solid fa-circle-info"></i> Report
+        </a>
+        <a href="my-posts.html" class="nav-item active">
+          <i class="fa-solid fa-box"></i> My Posts
+        </a>
+        <a href="about.html" class="nav-item">
+          <i class="fa-solid fa-circle-info"></i> About
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fa-solid fa-user"></i> Profile
+        </a>
+      </nav>
+    </header>
+
+    
+
+    <div class="page-content">
+      <main>
+        <h1>My Posts</h1>
+        <p class="hero-subtitle">Manage your lost and found items</p>
+        <div id="my-posts-container">
+          <p>Loading your posts...</p>
+        </div>
+      </main>
+    </div>
 
     <script src="./js/my-posts.js"></script>
     <script>
