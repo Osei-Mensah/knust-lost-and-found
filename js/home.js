@@ -48,33 +48,40 @@ function renderItems() {
     const card = document.createElement("div");
     card.className = "item-card";
 
-    const img = item.image
+    const imageHtml = item.image
       ? `<img src="${item.image}" class="item-image">`
-      : "";
+      : `<div class="item-image-placeholder"></div>`;
+
     card.innerHTML = `
-  ${img}
+  ${imageHtml}
 
   <div class="item-content">
-   <h3 class="item-title">${escapeHtml(item.title)}</h3>
-<p class="item-description">${escapeHtml(item.description)}</p>
 
-    <div class="item-meta">
-    <span class="item-type">${item.type}</span>
-    <span class="item-category">${item.category}</span>
-    <span class="item-time">
-  <i data-lucide="clock"></i>
-  ${timeAgo(item.createdAt)}
-</span>
+    <div class="card-top">
+      <h3 class="item-title">${escapeHtml(item.title)}</h3>
+      <p class="item-description">${escapeHtml(item.description)}</p>
 
-<span class="item-views">
-  <i data-lucide="eye"></i>
-  ${item.views} ${item.views === 1 ? "view" : "views"}
-</span>
-     </div>
+      <span class="item-category">${item.category}</span>
 
-    <div class="status-badge status-${item.status.toLowerCase()}">
-      ${item.status}
+      <div class="item-meta">
+        <span>
+          <i data-lucide="clock"></i>
+          ${timeAgo(item.createdAt)}
+        </span>
+
+        <span>
+          <i data-lucide="eye"></i>
+          ${item.views} ${item.views === 1 ? "view" : "views"}
+        </span>
+      </div>
     </div>
+
+    <div class="card-bottom">
+      <span class="status-badge status-${item.status.toLowerCase()}">
+        ${item.status}
+      </span>
+    </div>
+
   </div>
 `;
     card.addEventListener("click", () => {
