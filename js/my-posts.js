@@ -1,4 +1,4 @@
-const container = document.getElementById("my-posts-container");
+const container = document.getElementById("items-container");
 const deviceId = localStorage.getItem("deviceId");
 function timeAgo(dateString) {
   const seconds = Math.floor((Date.now() - new Date(dateString)) / 1000);
