@@ -8,8 +8,10 @@ if (loginLogoutBtn) {
     loginLogoutBtn.innerHTML = `<i class="fa-solid fa-right-from-bracket"></i> Logout`;
     loginLogoutBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      localStorage.removeItem("currentUser");
-      window.location.href = "login.html";
+      if (window.confirm("Are you sure you want to log out?")) {
+        localStorage.removeItem("currentUser");
+        window.location.href = "login.html";
+      }
     });
   } else {
     loginLogoutBtn.href = "login.html";
