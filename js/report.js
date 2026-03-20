@@ -34,6 +34,13 @@ if (!deviceId) {
 const params = new URLSearchParams(window.location.search);
 const editId = params.get("edit");
 
+const savedProfile = JSON.parse(localStorage.getItem("profile"));
+
+if (savedProfile && !editId) {
+  document.getElementById("contact-name").value = savedProfile.name || "";
+
+  document.getElementById("contact-phone").value = savedProfile.phone || "";
+}
 let items = JSON.parse(localStorage.getItem("items")) || [];
 items = items.map((item) => ({
   claims: [],
@@ -51,11 +58,28 @@ if (editId) {
   const itemToEdit = items.find((item) => item.id === editId);
 
   if (itemToEdit) {
+    document.getElementById("contact-name").value =
+      itemToEdit.contactName || "";
+
+    document.getElementById("contact-phone").value =
+      itemToEdit.contactPhone || "";
     document.getElementById("item-type").value = itemToEdit.type;
     document.getElementById("item-category").value = itemToEdit.category;
     document.getElementById("item-title").value = itemToEdit.title;
     document.getElementById("item-description").value = itemToEdit.description;
     document.getElementById("item-location").value = itemToEdit.location;
+
+    document.querySelectorAll(".type-btn").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.type === itemToEdit.type);
+    });
+
+    // Sync category buttons
+    document.querySelectorAll(".category-btn").forEach((btn) => {
+      btn.classList.toggle(
+        "active",
+        btn.dataset.category === itemToEdit.category,
+      );
+    });
 
     if (itemToEdit.image) {
       const preview = document.getElementById("image-preview");
@@ -91,6 +115,9 @@ form.addEventListener("submit", (event) => {
               title,
               description,
               location,
+              contactName,
+              contactPhone,
+
               image: imageData || item.image,
             }
           : item,

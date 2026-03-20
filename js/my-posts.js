@@ -1,6 +1,10 @@
 // ── LOAD USER PROFILE ───────────────────────────────────────────
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
+if (!currentUser) {
+  window.location.href = "login.html";
+}
+
 if (currentUser) {
   const initials = currentUser.name.split(" ").map(n => n[0]).join("").toUpperCase();
   document.getElementById("sidebarAvatar").textContent = initials;
@@ -30,8 +34,7 @@ if (currentUser) {
   }
 }
 const container = document.getElementById("my-posts-container");
-const deviceId = localStorage.getItem("deviceId");
-
+const deviceId = localStorage.getItem("deviceId") || currentUser?.id;
 let currentTab = "active";
 
 // ── SIDEBAR NAVIGATION ──────────────────────────────────────────
@@ -49,13 +52,6 @@ const sidebarBtns = {
   posts:         document.getElementById("myPostsBtn"),
 };
 
-function showSection(name) {
-  Object.values(sections).forEach(s => s.style.display = "none");
-  document.querySelectorAll(".sidebar-item").forEach(b => b.classList.remove("active"));
-  sections[name].style.display = "block";
-  sidebarBtns[name].classList.add("active");
-  if (name === "overview") renderOverview();
-}
 
 function renderNotifications() {
   const items = (JSON.parse(localStorage.getItem("items")) || []).map(item => ({ claims: [], views: 0, ...item }));
@@ -410,6 +406,4 @@ function renderMyPosts() {
   });
 }
 
-// ── INIT ────────────────────────────────────────────────────────
-showSection("posts");
-renderMyPosts();
+
