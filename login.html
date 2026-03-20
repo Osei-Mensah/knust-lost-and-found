@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — KNUST Lost & Found</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      .auth-page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url("images/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 20px;
+      }
+
+      .auth-card {
+        background: #FDFAF3;
+        border-radius: 16px;
+        padding: 40px;
+        width: 100%;
+        max-width: 420px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      }
+
+      .auth-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+
+      .auth-logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .auth-logo span {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #111;
+      }
+
+      .auth-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #111;
+        text-align: center;
+        margin: 0 0 6px 0;
+      }
+
+      .auth-subtitle {
+        font-size: 13px;
+        color: #888;
+        text-align: center;
+        margin: 0 0 28px 0;
+      }
+
+      .auth-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .auth-field label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #444;
+      }
+
+      .auth-field input {
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        font-size: 14px;
+        font-family: 'Inter', sans-serif;
+        outline: none;
+        transition: border 0.15s ease;
+        background: white;
+      }
+
+      .auth-field input:focus {
+        border-color: #0f6a3a;
+      }
+
+      .auth-error {
+        color: #e53935;
+        font-size: 12px;
+        margin: -8px 0 12px 0;
+        display: none;
+      }
+
+      .auth-btn {
+        width: 100%;
+        padding: 12px;
+        background: #0f6a3a;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: opacity 0.15s ease;
+      }
+
+      .auth-btn:hover { opacity: 0.88; }
+
+      .auth-footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+        color: #666;
+      }
+
+      .auth-footer a {
+        color: #0f6a3a;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .auth-footer a:hover { text-decoration: underline; }
+    </style>
+  </head>
+
+  <body class="auth-page">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <img src="images/knust-logo.png" alt="KNUST Logo">
+        <span>KNUST Lost &amp; Found</span>
+      </div>
+
+      <h2 class="auth-title">Welcome back</h2>
+      <p class="auth-subtitle">Sign in to your account</p>
+
+      <div class="auth-field">
+        <label>Email</label>
+        <input type="email" id="login-email" placeholder="Enter your email">
+      </div>
+
+      <div class="auth-field">
+        <label>Password</label>
+        <input type="password" id="login-password" placeholder="Enter your password">
+      </div>
+
+      <p class="auth-error" id="login-error">Invalid email or password.</p>
+
+      <button class="auth-btn" id="login-btn">Sign In</button>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="register.html">Register here</a>
+      </div>
+    </div>
+
+    <script src="./js/auth.js"></script>
+  </body>
+</html>
