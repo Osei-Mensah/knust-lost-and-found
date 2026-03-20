@@ -8,8 +8,91 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      .about-page {
+        min-height: 100vh;
+        background-image: url("images/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .about-hero {
+        text-align: center;
+        padding: 60px 20px 40px;
+        background-image: url("images/half_background.jpg");
+        background-size: cover;
+        background-position: center;
+        position: sticky;
+        top: 70px;
+        z-index: 99;
+      }
+
+      .about-hero h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 4.5rem;
+        font-weight: 700;
+        color: #F5F0E8;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .about-hero::after {
+        content: "";
+        display: block;
+        width: 75%;
+        margin: 16px auto 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .about-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .about-card {
+        background: #FDFAF3;
+        border-radius: 16px;
+        padding: 28px 32px;
+        border: 1px solid #111
+      }
+
+      .about-card h2 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #fa0bea;
+        margin: 0 0 14px 0;
+      }
+
+      .about-card p {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        color: #333;
+        line-height: 1.7;
+        margin: 0 0 8px 0;
+      }
+
+      .about-card ul,
+      .about-card ol {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        color: #333;
+        line-height: 1.9;
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .about-card li {
+        margin-bottom: 4px;
+      }
+    </style>
   </head>
-  <body>
+  <body class="about-page">
     <header>
       <div class="logo">
         <img src="images/knust-logo.png" alt="KNUST Logo" class="logo-img">
@@ -24,10 +107,42 @@
       </nav>
     </header>
 
-    <main>
-      <h1>About &amp; Safety</h1>
-      <p>Safety tips and how this system works will go here.</p>
-    </main>
+    <div class="about-hero">
+      <h1>About Us</h1>
+    </div>
+
+    <div class="about-content">
+
+      <div class="about-card">
+        <h2>Reconnecting the KNUST Community</h2>
+        <p>The KNUST Lost &amp; Found platform is a web-based solution developed by a team of ten students as part of a Web Development project at Kwame Nkrumah University of Science and Technology.</p>
+        <p>This platform was created to address a common challenge on campus — the loss and misplacement of personal belongings. From student IDs and wallets to phones and academic materials, losing an item can cause unnecessary stress and disruption.</p>
+        <p>Our goal is to provide a centralized, secure, and user-friendly system where students and staff can report, search for, and recover lost items efficiently.</p>
+      </div>
+
+      <div class="about-card">
+        <h2>Our Purpose</h2>
+        <p>We aim to:</p>
+        <ul>
+          <li>Create a structured digital system for reporting lost and found items</li>
+          <li>Reduce the stress associated with losing valuables</li>
+          <li>Promote honesty, responsibility, and community trust</li>
+          <li>Make the recovery process faster and more reliable</li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <h2>How it Works</h2>
+        <ol>
+          <li>Report a lost or found item through the platform.</li>
+          <li>Provide clear details and relevant descriptions.</li>
+          <li>Browse listings to find potential matches.</li>
+          <li>Verify ownership before items are returned.</li>
+        </ol>
+        <p style="margin-top: 12px;">Our goal is to make the process straightforward and secure for all users.</p>
+      </div>
+
+    </div>
 
     <script src="./js/nav.js"></script>
     <script>
@@ -35,3 +150,4 @@
     </script>
   </body>
 </html>
+
