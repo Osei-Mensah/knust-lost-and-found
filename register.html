@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register — KNUST Lost & Found</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      .auth-page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url("images/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 20px;
+      }
+
+      .auth-card {
+        background: #FDFAF3;
+        border-radius: 16px;
+        padding: 40px;
+        width: 100%;
+        max-width: 460px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      }
+
+      .auth-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+
+      .auth-logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .auth-logo span {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #111;
+      }
+
+      .auth-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #111;
+        text-align: center;
+        margin: 0 0 6px 0;
+      }
+
+      .auth-subtitle {
+        font-size: 13px;
+        color: #888;
+        text-align: center;
+        margin: 0 0 28px 0;
+      }
+
+      .auth-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .auth-field label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #444;
+      }
+
+      .auth-field input,
+      .auth-field select {
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        font-size: 14px;
+        font-family: 'Inter', sans-serif;
+        outline: none;
+        transition: border 0.15s ease;
+        background: white;
+      }
+
+      .auth-field input:focus,
+      .auth-field select:focus {
+        border-color: #0f6a3a;
+      }
+
+      /* Role selector */
+      .role-selector {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .role-btn {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px 8px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        background: white;
+        font-family: 'Inter', sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.15s ease;
+        color: #555;
+      }
+
+      .role-btn:hover { border-color: #0f6a3a; color: #0f6a3a; }
+
+      .role-btn.active {
+        background: #0f6a3a;
+        border-color: #0f6a3a;
+        color: white;
+        font-weight: 600;
+      }
+
+      .auth-error {
+        color: #e53935;
+        font-size: 12px;
+        margin: -8px 0 12px 0;
+        display: none;
+      }
+
+      .auth-btn {
+        width: 100%;
+        padding: 12px;
+        background: #0f6a3a;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: opacity 0.15s ease;
+      }
+
+      .auth-btn:hover { opacity: 0.88; }
+
+      .auth-footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+        color: #666;
+      }
+
+      .auth-footer a {
+        color: #0f6a3a;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .auth-footer a:hover { text-decoration: underline; }
+    </style>
+  </head>
+
+  <body class="auth-page">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <img src="images/knust-logo.png" alt="KNUST Logo">
+        <span>KNUST Lost &amp; Found</span>
+      </div>
+
+      <h2 class="auth-title">Create an account</h2>
+      <p class="auth-subtitle">Join the KNUST Lost & Found community</p>
+
+      <div class="auth-field">
+        <label>Full Name</label>
+        <input type="text" id="reg-name" placeholder="Enter your full name">
+      </div>
+
+      <div class="auth-field">
+        <label>Email</label>
+        <input type="email" id="reg-email" placeholder="Enter your email">
+      </div>
+
+      <div class="auth-field">
+        <label>ID Number</label>
+        <input type="text" id="reg-id" placeholder="Student or Staff ID">
+      </div>
+
+      <div class="auth-field">
+        <label>Role</label>
+        <div class="role-selector">
+          <button type="button" class="role-btn" data-role="Student">
+            🎓 Student
+          </button>
+          <button type="button" class="role-btn" data-role="Teaching Staff">
+            👨‍🏫 Teaching Staff
+          </button>
+          <button type="button" class="role-btn" data-role="Non-Teaching Staff">
+            👷 Non-Teaching Staff
+          </button>
+        </div>
+      </div>
+
+      <div class="auth-field">
+        <label>Password</label>
+        <input type="password" id="reg-password" placeholder="At least 6 characters">
+      </div>
+
+      <div class="auth-field">
+        <label>Confirm Password</label>
+        <input type="password" id="reg-confirm" placeholder="Repeat your password">
+      </div>
+
+      <p class="auth-error" id="reg-error">Please fill in all fields.</p>
+
+      <button class="auth-btn" id="register-btn">Create Account</button>
+
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Sign in here</a>
+      </div>
+    </div>
+
+    <script src="./js/auth.js"></script>
+  </body>
+</html>

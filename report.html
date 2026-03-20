@@ -5,36 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Report Item — KNUST Lost & Found</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body class="report-page">
     <header>
+      <div class="logo">
+        <img src="images/knust-logo.png" alt="KNUST Logo" class="logo-img">
+        <span class="site-title">KNUST Lost &amp; Found</span>
+      </div>
       <nav class="navbar">
-        <div class="nav-brand">
-          <a href="index.html">KNUST Lost & Found</a>
-        </div>
-
-        <div class="nav-links">
-          <a href="index.html">
-            <i data-lucide="home"></i>
-            Home
-          </a>
-
-          <a href="report.html">
-            <i data-lucide="plus-circle"></i>
-            Report
-          </a>
-
-          <a href="my-posts.html">
-            <i data-lucide="clipboard-list"></i>
-            My Posts
-          </a>
-
-          <a href="about.html">
-            <i data-lucide="info"></i>
-            About
-          </a>
-        </div>
+        <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="report.html" class="nav-item active"><i class="fa-solid fa-circle-info"></i> Report</a>
+        <a href="my-posts.html" class="nav-item"><i class="fa-solid fa-box"></i> My Posts</a>
+        <a href="about.html" class="nav-item"><i class="fa-solid fa-circle-info"></i> About</a>
+        <a href="login.html" class="nav-item" id="loginLogoutBtn"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
       </nav>
     </header>
 
@@ -47,13 +33,8 @@
       <section class="report-container">
         <form id="report-form">
           <div class="item-type-selector">
-            <button type="button" class="type-btn" data-type="lost">
-              Lost Item
-            </button>
-
-            <button type="button" class="type-btn" data-type="found">
-              Found Item
-            </button>
+            <button type="button" class="type-btn" data-type="lost">Lost Item</button>
+            <button type="button" class="type-btn" data-type="found">Found Item</button>
           </div>
 
           <select id="item-type" required style="display: none">
@@ -66,52 +47,24 @@
 
           <div class="category-section">
             <p class="section-label">What category best describes this item?</p>
-
             <div class="category-grid">
-              <button
-                type="button"
-                class="category-btn"
-                data-category="Electronics"
-              >
-                <i data-lucide="laptop"></i>
-                Electronics
+              <button type="button" class="category-btn" data-category="Electronics">
+                <i data-lucide="laptop"></i> Electronics
               </button>
-
-              <button
-                type="button"
-                class="category-btn"
-                data-category="Personal Items"
-              >
-                <i data-lucide="user"></i>
-                Personal Items
+              <button type="button" class="category-btn" data-category="Personal Items">
+                <i data-lucide="user"></i> Personal Items
               </button>
-
               <button type="button" class="category-btn" data-category="Keys">
-                <i data-lucide="key"></i>
-                Keys
+                <i data-lucide="key"></i> Keys
               </button>
-
-              <button
-                type="button"
-                class="category-btn"
-                data-category="Clothing"
-              >
-                <i data-lucide="shirt"></i>
-                Clothing
+              <button type="button" class="category-btn" data-category="Clothing">
+                <i data-lucide="shirt"></i> Clothing
               </button>
-
-              <button
-                type="button"
-                class="category-btn"
-                data-category="Documents"
-              >
-                <i data-lucide="file-text"></i>
-                Documents
+              <button type="button" class="category-btn" data-category="Documents">
+                <i data-lucide="file-text"></i> Documents
               </button>
-
               <button type="button" class="category-btn" data-category="Other">
-                <i data-lucide="package"></i>
-                Other
+                <i data-lucide="package"></i> Other
               </button>
             </div>
           </div>
@@ -142,32 +95,17 @@
 
           <label>
             Location:
-            <input
-              type="text"
-              id="item-location"
-              placeholder="e.g. Near the Great Hall, Bush Canteen, College of Science..."
-              required
-            />
+            <input type="text" id="item-location" placeholder="e.g. Near the Great Hall, Bush Canteen, College of Science..." required />
           </label>
 
           <div class="upload-section">
             <p class="section-label">Upload Photos</p>
-
             <label for="item-image" class="upload-box" id="upload-box">
               <i data-lucide="camera"></i>
-
               <p class="upload-main">Click to upload photos</p>
-
               <p class="upload-sub">or drag your images here</p>
             </label>
-
-            <input
-              type="file"
-              id="item-image"
-              accept="image/*"
-              style="display: none"
-            />
-
+            <input type="file" id="item-image" accept="image/*" style="display: none" />
             <img id="image-preview" />
           </div>
 
@@ -175,35 +113,23 @@
 
           <div class="contact-section">
             <p class="section-label">Contact Information</p>
-            <p class="section-sub">
-              How should people contact you about this item?
-            </p>
-
+            <p class="section-sub">How should people contact you about this item?</p>
             <div class="contact-grid">
               <label>
                 Your Name
-                <input
-                  type="text"
-                  id="contact-name"
-                  placeholder="Enter your name"
-                />
+                <input type="text" id="contact-name" placeholder="Enter your name" />
               </label>
-
               <label>
                 Phone Number
-                <input
-                  type="tel"
-                  id="contact-phone"
-                  placeholder="+233 XXX XXX XXX"
-                />
+                <input type="tel" id="contact-phone" placeholder="+233 XXX XXX XXX" />
               </label>
             </div>
           </div>
+
           <br /><br />
 
           <div class="privacy-box">
-            <p class="privacy-title">Privacy & Safety</p>
-
+            <p class="privacy-title">Privacy &amp; Safety</p>
             <p class="privacy-text">
               Your contact information will only be shared with verified users
               who respond to your post. We recommend meeting in public places
@@ -217,6 +143,7 @@
     </main>
 
     <script src="./js/report.js"></script>
+    <script src="./js/nav.js"></script>
     <script>
       lucide.createIcons();
     </script>

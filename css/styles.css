@@ -167,9 +167,10 @@ header {
 
 /* ---------- SIDEBAR ---------- */
 .sidebar {
-  width: 280px;
+  width: 220px;
   flex-shrink: 0;
-  min-width: 280px;
+  min-width: 220px;
+  min-height: 480px;
   background: #FDFAF3;
   border-radius: 16px;
   padding: 28px 20px;
@@ -284,7 +285,168 @@ header {
   min-height: auto;
 }
 
+/* ---------- SECTION HEADING ---------- */
+.section-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 20px 0;
+}
 
+.section-subheading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 24px 0 12px 0;
+}
+
+/* ---------- OVERVIEW STATS ---------- */
+.overview-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.stat-card i { font-size: 24px; color: #888; margin-bottom: 8px; }
+.stat-card.lost i { color: #e53935; }
+.stat-card.found i { color: #00bcd4; }
+.stat-card.resolved i { color: #0f6a3a; }
+
+.stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #888;
+  margin: 4px 0 0 0;
+}
+
+/* ---------- NOTIFICATIONS ---------- */
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid #e0e0e0;
+}
+
+.notification-item.unread {
+  border-left: 4px solid #0f6a3a;
+  background: #f6fbf8;
+}
+
+.notification-item i {
+  color: #0f6a3a;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.notification-item p {
+  margin: 0;
+  font-size: 13px;
+  color: #333;
+  flex: 1;
+}
+
+.notif-time {
+  font-size: 11px;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+/* ---------- SETTINGS ---------- */
+
+
+.settings-form {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+}
+
+.settings-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.settings-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+}
+
+.settings-field input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.15s ease;
+}
+
+.settings-field input:focus {
+  border-color: #0f6a3a;
+}
+
+.settings-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.save-btn {
+  padding: 10px 24px;
+  background: #0f6a3a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.save-btn:hover { opacity: 0.85; }
+
+.cancel-btn {
+  padding: 10px 24px;
+  background: transparent;
+  color: #888;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cancel-btn:hover { border-color: #333; color: #333; }
 
 /* ---------- ITEM CARDS ---------- */
 /* FIX 2: white background, cleaner card */
