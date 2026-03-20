@@ -25,11 +25,11 @@ function renderTabs() {
 
   const activeBtn = document.createElement("button");
   activeBtn.textContent = "Active Posts";
-  activeBtn.className = `tab-btn ${currentTab === "active" ? "outline" : "inactive"}`;
+  activeBtn.className = `tab-btn ${currentTab === "active" ? "tab-active" : "tab-inactive"}`;
 
   const matchedBtn = document.createElement("button");
   matchedBtn.textContent = "Matched";
-  matchedBtn.className = `tab-btn ${currentTab === "matched" ? "filled" : "inactive"}`;
+  matchedBtn.className = `tab-btn ${currentTab === "matched" ? "tab-active" : "tab-inactive"}`;
 
   activeBtn.addEventListener("click", () => {
     currentTab = "active";
@@ -56,11 +56,8 @@ function renderMyPosts() {
   const myItems = items.filter((item) => item.owner === deviceId);
 
   container.innerHTML = "";
-
-  // Render tabs
   container.appendChild(renderTabs());
 
-  // Filter by tab
   const filtered = myItems.filter((item) => {
     if (currentTab === "active") return item.status !== "Resolved";
     if (currentTab === "matched") return item.status === "Resolved";
@@ -69,9 +66,7 @@ function renderMyPosts() {
 
   if (filtered.length === 0) {
     const empty = document.createElement("p");
-    empty.style.textAlign = "center";
-    empty.style.color = "#888";
-    empty.style.marginTop = "40px";
+    empty.style.cssText = "text-align:center;color:#888;margin-top:40px;";
     empty.textContent = currentTab === "active"
       ? "You have no active posts."
       : "You have no matched posts yet.";
@@ -83,30 +78,39 @@ function renderMyPosts() {
     const card = document.createElement("div");
     card.className = "item-card";
 
+    // type badge color
+    const typeColor = item.type === "found"
+  ? "background:#00bcd4;color:white;"
+  : "background:#e53935;color:white;";
+
     const img = item.image
       ? `<img src="${item.image}" class="item-image">`
-      : "";
+      : `<div class="item-image-placeholder"></div>`;
 
-    card.innerHTML = `
-      ${img}
-      <div class="item-content">
-        <h3 class="item-title">${item.title}</h3>
-        <p class="item-description">${item.description}</p>
-        <div class="item-meta">
-          <span class="item-type">${item.type}</span>
-          <span class="item-category">${item.category}</span>
-          <span class="item-time"><i class="fa-regular fa-clock"></i> Reported: ${timeAgo(item.createdAt)}</span>
-          <span class="item-views">${item.views} views</span>
-        </div>
-        <div class="status-badge status-${item.status.toLowerCase()}">${item.status}</div>
+   card.innerHTML = `
+  ${img}
+  <div class="item-content">
+    <div class="card-top">
+      <h3 class="item-title">${item.title}</h3>
+      <p class="item-description">${item.description}</p>
+    </div>
+    <div class="card-bottom">
+      <div class="item-meta">
+        <span class="item-time"><i class="fa-regular fa-clock"></i> ${timeAgo(item.createdAt)}</span>
+        <span class="item-views"><i class="fa-regular fa-eye"></i> ${item.views} ${item.views === 1 ? "view" : "views"}</span>
       </div>
-      <button class="view-details-btn">View Details</button>
-    `;
+      <div class="card-right">
+        <span class="type-badge" style="${typeColor}">${item.type}</span>
+        <button class="edit-btn">Edit</button>
+      </div>
+    </div>
+  </div>
+`;
 
-    // View details button
-    card.querySelector(".view-details-btn").addEventListener("click", (e) => {
+    // Edit button
+    card.querySelector(".edit-btn").addEventListener("click", (e) => {
       e.stopPropagation();
-      window.location.href = `details.html?id=${item.id}`;
+      window.location.href = `report.html?edit=${item.id}`;
     });
 
     // Claims
@@ -156,31 +160,6 @@ function renderMyPosts() {
 
       card.appendChild(claimsContainer);
     }
-
-    // Edit & Delete buttons
-    const actionsDiv = document.createElement("div");
-    actionsDiv.className = "card-actions";
-
-    const editBtn = document.createElement("button");
-    editBtn.textContent = "Edit";
-    editBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      window.location.href = `report.html?edit=${item.id}`;
-    });
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    deleteBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (!confirm("Are you sure you want to delete this item?")) return;
-      const updatedItems = items.filter((i) => i.id !== item.id);
-      localStorage.setItem("items", JSON.stringify(updatedItems));
-      renderMyPosts();
-    });
-
-    actionsDiv.appendChild(editBtn);
-    actionsDiv.appendChild(deleteBtn);
-    card.appendChild(actionsDiv);
 
     card.addEventListener("click", () => {
       window.location.href = `details.html?id=${item.id}`;
