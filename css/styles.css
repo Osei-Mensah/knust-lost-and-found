@@ -140,8 +140,7 @@ header {
 .hero-section {
   text-align: center;
   padding: 30px 20px 40px 20px;
-  position: sticky;
-  top: 70px;
+  position: relative;
   z-index: 99;
   background-image: url("../images/half_background.jpg");
   background-size: cover;
@@ -1157,4 +1156,78 @@ header {
   max-width: 100%;
   margin: 0 auto;
   padding: 24px;
+}
+
+.about-hero {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.about-hero h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: #f5f0e8;
+  margin: 0;
+  line-height: 1;
+}
+
+.about-hero::after {
+  content: "";
+  display: block;
+  width: 75%;
+  margin: 16px auto 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-card {
+  background: #fdfaf3;
+  border-radius: 16px;
+  padding: clamp(16px, 4vw, 32px);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.about-card h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 14px 0;
+}
+
+.about-card p {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.7;
+  margin: 0 0 8px 0;
+}
+
+.about-card ul,
+.about-card ol {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.9;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.about-card li {
+  margin-bottom: 4px;
+}
+
+.about-cta {
+  text-align: center;
+  margin: 30px 0 10px;
 }
